@@ -45,3 +45,8 @@ class Tracker(db.Entity):
     status = Optional(Status)
     last_known_error = Optional(unicode)
 
+
+sql_debug(False)
+db.bind('sqlite', 'tracker.sqlite', create_db=True)
+db.generate_mapping(create_tables=True)
+
