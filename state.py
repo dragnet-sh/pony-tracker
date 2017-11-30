@@ -53,7 +53,7 @@ db.generate_mapping(create_tables = True)
 
 
 @db_session
-def init_state(process_id, payload, action,nt status):
+def init_state(process_id, payload, action, status):
 	action = Action.get(label = action)
 	status = Status.get(label = status)
 	
