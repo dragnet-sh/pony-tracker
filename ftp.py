@@ -1,7 +1,11 @@
 '''Push - Pull File form the given remote FTP Lacation'''
 __author__ = 'bbudhathoki'
 
+from ftplib import FTP
+import logging
 
+logging.basicConfig(level=logging.INFO)
+log = logging.getLogger(__name__)
 
 class FtpTransfer:
 
@@ -17,4 +21,12 @@ class FtpTransfer:
 
 
     '''Connect to the FTP Host'''
+    def connect(self):
+        try:
+            self.ftp = FTP(self.ftp_host)
+            self.ftp.login(self.ftp_user, self.ftp_pass)
+        except Exception:
+            print 'Unable to Connect the the FTP !!'
+            return None
+
 
