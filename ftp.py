@@ -35,3 +35,11 @@ class FtpTransfer:
         self.ftp.retrbinary('RETR ' + remote_file_path, localfile.write, 1024)
         localfile.close()
 
+    '''Pull the given file from Remote'''
+    def push(self, LOCAL_FILE_PATH, remote_file_path):
+        localfile = open(LOCAL_FILE_PATH, 'r+')
+        self.ftp.storbinary('STOR ' + remote_file_path, localfile)
+        localfile.close()
+
+
+
