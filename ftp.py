@@ -47,4 +47,24 @@ class FtpTransfer:
             self.ftp.quit()
 
 
+'''
+Initialization to Simluate the FTP Trasnfer @ Localhost
+ToDo: Move these to the Test Area !!
+'''
+
+def initialize():
+    mkdir_p('/tmp/remote_1/')
+    mkdir_p('/tmp/cache/')
+    mkdir_p('/tmp/remote_2/')
+
+    insert_text('/tmp/remote_1/sample_rm1.txt', 'This is the sample text on remote 1 !!')
+    insert_text('/tmp/remote_2/sample_rm2.txt', 'This is the sample text on remote 2 !!')
+    insert_text('/tmp/cache/sample.txt', 'This is the sample text on the cache !!')
+
+
+def insert_text(file_path, text):
+    with open(file_path, 'wb+') as my_file:
+        my_file.write(text)
+
+
 
