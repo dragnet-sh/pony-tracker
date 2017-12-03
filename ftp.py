@@ -29,4 +29,9 @@ class FtpTransfer:
             print 'Unable to Connect the the FTP !!'
             return None
 
+    '''Push the given file to Remote'''
+    def pull(self, LOCAL_FILE_PATH, remote_file_path):
+        localfile = open(LOCAL_FILE_PATH, 'wb')
+        self.ftp.retrbinary('RETR ' + remote_file_path, localfile.write, 1024)
+        localfile.close()
 
