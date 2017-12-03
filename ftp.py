@@ -41,5 +41,10 @@ class FtpTransfer:
         self.ftp.storbinary('STOR ' + remote_file_path, localfile)
         localfile.close()
 
+    '''Close the FTP Connection'''
+    def close(self):
+        if self.ftp:
+            self.ftp.quit()
+
 
 
